@@ -7,3 +7,4 @@ Upon typing a task into the input field and pressing the "enter" key, a new item
 - Also, when you are appending each item, you should use the following template:
   `  <li><div class="view"><label>Task Text Here</label></div></li>`
 - You'll also need to use the method `insertAdjacentHTML` to add each item to the list. You'll want to use the `beforeend` position so each item goes to the bottom.
+- Pat yourself on the back for reading the hints
