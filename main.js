@@ -1,24 +1,23 @@
-// Add your JS here.
+// This function runs on every keypress
+// when the key is the enter key (13), it will add the text
+function addTodo(event) {
+  if (event.keyCode === 13) { // checks for enter key
+    let text = input.value; // gets the value of the input (text entered)
+    let html = itemTemplate(text); // sends the text to the template to build our list item
 
-var todoInput = document.querySelector('.new-todo');
+    // This will let us add HTML element to the end of the list element
+    // Basically it appends it
+    list.insertAdjacentHTML('beforeend', html);
 
-// Select the ordered list element with the id 'todoList' and store in a variable `todoList`.
-
-var todoList = document.querySelector('.todo-list');
-
-
-
-// Add a keypress event listener to `todoInput`.
-
-todoInput.addEventListener('keypress', function(event)
-{if (event.keyCode === 13){
-  var todoContent = event.target.value;
-  event.target.value = "";
-  var newTodoLi = document.createElement('li');
-  newTodoLi.textContent = todoContent;
-  todoList.appendChild(newTodoLi);
-  newTodoLi.innerHTML = "<li>" + "<class = 'view'>" + "<label>" + newTodoLi.textContent;
+    input.value = ""; // reset the input field so you can keep entering more
+  }
 }
-return event;
+
+// This function builds the HTML that is appended for each list item
+function itemTemplate (text) {
+  return '<li><div class="view"><label>' + text + '</label></div></li>';
 }
-);
+
+// This adds an event listener for every keypress to our
+// input field. It will then run the addTodo function above
+input.addEventListener('keypress', addTodo);
